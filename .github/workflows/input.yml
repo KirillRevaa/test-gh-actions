@@ -1,0 +1,19 @@
+name: test manual run with input
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Script name'
+        required: true
+        default: 'bash.sh'
+      path:
+        description: 'Script path'
+        required: false
+        default: '/home'
+jobs:
+  say_hi:
+    runs_on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Script name: ${{ github.event.inputs.name }}"
+          echo "Script path: ${{ github.event.inputs.path }}"
