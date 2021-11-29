@@ -2,14 +2,16 @@ name: test manual run with input
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Script name'
+      RSPlus:
+        description: 'Start build in RS+'
         required: true
-        default: 'bash.sh'
-      path:
-        description: 'Script path'
-        required: false
-        default: '/home'
+        default: true
+        type: boolean
+      RS2:
+        description: 'Start build in RS2'
+        required: true
+        default: 'false'
+        type: boolean
 jobs:
   say_hi:
     runs-on: ubuntu-latest
